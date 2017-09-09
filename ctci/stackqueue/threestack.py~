@@ -1,0 +1,12 @@
+class threestack():
+    def __init__(self,numstacks):
+        self.numstacks = numstacks
+        self.stackarr = []
+    def push(self,elem,numstack):
+        stackarr.append((elem,numstack))
+    def peek(self,numstack):
+        for i in range(-1,-len(stackarr)-1,-1):
+            elem, stacknum = stackarr[i][0], stackarr[i][1]
+            if stacknum == numstack:
+                return elem
+        raise ValueError

@@ -1,0 +1,13 @@
+class MyQueue():
+    def __init__(self):
+        self.first = []
+        self.second = []
+    def enqueue(self,elem):
+        self.first.append(elem)
+    def dequeue(self,elem):
+        for i in range(-1,-len(self.first)-1,-1):
+            self.second.append(self.first[i])
+        elem = self.second.pop
+        self.first = self.second[::]
+        self.second = []
+        

@@ -1,0 +1,16 @@
+class setofstacks():
+    def __init__(self,capacity):
+        self.stacks = []
+        self.capacity = capacity
+    def push(self,elem):
+        stack = self.stacks[-1]
+        if len(stack) < capacity:
+            stack.append(elem)
+        else:
+            newstack = [elem]
+            self.stacks.append(newstack)
+    def pop(self):
+        stack = self.stacks[-1]
+        elem = stack[-1]
+        if not stack:
+            self.stacks = self.stacks[:-1]
