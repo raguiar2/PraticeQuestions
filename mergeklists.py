@@ -20,21 +20,28 @@ def merge_k_lists(lists):
 	result = []
 	for i, lst in enumerate(lists):
 		if len(lst) > 0:
-			firstval = SortedValue(lst[0],0,i)
+			firstval = (lst[0],i,0)
 			# priority is value, store index of array and number of array as a tuple 
 			# might be good to instantiate as a class
-			pq.put(firstval, firstval.value)
+			pq.put(firstval, firstval[0])
 	while not pq.empty():
-		val = pq.get()
-		value = val.value
-		listidx = val.listidx
-		listnum = val.listnum
-		result.append(value)
+		val, listnum, listidx = pq.get()
+		result.append(val)
 		originlst = lists[listnum]
 		if listidx + 1 < len(originlst):
-			nextval = SortedValue(originlst[listidx+1],listidx+1, listnum)
-			pq.put(nextval, nextval.value)
+			nextval = (lst[listidx+1],listnum,listidx+1)
+			pq.put(nextval, nextval[0])
 	return result
+
+
+
+
+
+
+lists = [[1,2,3],[3,4,5],[6,7,8]]
+print(merge_k_lists(lists))
+lists = [[1,2],[3,4]]
+print(merge_k_lists(lists))
 
 
 
